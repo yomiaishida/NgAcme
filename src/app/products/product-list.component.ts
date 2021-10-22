@@ -11,7 +11,18 @@ export class PorductListComponent implements OnInit {
   imageWidth = 50;
   imageMargin = 5;
   showImage = false;
-  listFilter = ''
+
+  private _listFilter = ''
+  get listFilter(): string {
+    return this._listFilter
+  }
+  set listFilter(value: string) {
+    this._listFilter = value
+    this.filteredProducts = this.performFilter(value)
+  }
+
+  filteredProducts: IProduct[] = []
+
   products: IProduct[] = [
     {
       "productId": 1,
@@ -65,10 +76,16 @@ export class PorductListComponent implements OnInit {
     }
   ]
 
+  performFilter(filterBy: string): IProduct[] {
+    filterBy = filterBy.toLocaleLowerCase();
+    return this.products.filter((product: IProduct) => product.productName.toLocaleLowerCase().includes(filterBy))
+  }
+
   toggleImage(): void {
     this.showImage = !this.showImage
   }
   ngOnInit(): void {
     console.log('ngOnInit')
+    this.listFilter = 'rake'
   }
 }
