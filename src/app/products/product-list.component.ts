@@ -7,10 +7,10 @@ import { IProduct } from "./products";
   styleUrls: ['./product-list.component.css']
 })
 export class PorductListComponent implements OnInit {
-  pageTitle = 'Product List';
-  imageWidth = 50;
-  imageMargin = 5;
-  showImage = false;
+  pageTitle: string = 'Product List';
+  imageWidth: number = 50;
+  imageMargin: number = 5;
+  showImage: boolean = false;
 
   private _listFilter = ''
   get listFilter(): string {
@@ -87,5 +87,9 @@ export class PorductListComponent implements OnInit {
   ngOnInit(): void {
     console.log('ngOnInit')
     this.listFilter = 'rake'
+  }
+
+  onRatingClicked(message: string): void {
+    this.pageTitle = `Product List ${message}`
   }
 }
