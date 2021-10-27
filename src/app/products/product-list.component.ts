@@ -4,11 +4,10 @@ import { ProductService } from "./product.service";
 import { IProduct } from "./products";
 
 @Component({
-  selector: 'pm-products',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class PorductListComponent implements OnInit, OnDestroy {
+export class ProductListComponent implements OnInit, OnDestroy {
   pageTitle: string = 'Product List';
   imageWidth: number = 50;
   imageMargin: number = 5;
