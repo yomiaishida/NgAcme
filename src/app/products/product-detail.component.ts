@@ -35,7 +35,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-  
+  this.sub.unsubscribe()
   }
 }
 
